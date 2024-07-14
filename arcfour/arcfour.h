@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <errno.h>
 #define rc4decrypt(x, y)   rc4encrypt(x, y)
+#define rc4destroy(x)      free(x)
 
 typedef unsigned char int8;
 typedef unsigned short int int16;
