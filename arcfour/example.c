@@ -15,7 +15,7 @@ void printbin(int8 *input, const int16 size) {
     assert(size > 0);
 
     for (i = size, p = input; i > 0; i--, p++) {
-        if (!((i + 1) % 2)) {
+        if (!((i) % 2)) {
             printf(" ");
         }
         printf("%.02x", *p);
@@ -27,23 +27,27 @@ void printbin(int8 *input, const int16 size) {
 }
 
 int main() {
-    Arcfour *rc4;
+    //Arcfour *rc4;
     int16 skey, stext;
-    int8 *key, *from, *encrypted, *decrypted;
+    char *key, *from, *encrypted, *decrypted;
 
-    key="tomatoes"; /* can be from 8 Bits to 2048 Bits */
+    key=from=encrypted=decrypted=0;
+    from=key;
+    skey=stext=0;
+
+    key = "tomatoes"; /* can be from 8 Bits to 2048 Bits */
     skey=strlen(key);
-    from="Shall I compare thee to a summer's day";
+    from = "Shall I compare thee to a summer's day";
     stext=strlen(from);
 
-    printf("Initializing encryption algorithm");
-    rc4 = rc4init(key, skey);
+    printf("Initializing encryption algorithm ");
+    //rc4 = rc4init(key, skey);
     printf("done \n");
 
     printf("'%s'\n ->", from);
-    encrypted = rc4encrypt(from, stext);
+    //encrypted = rc4encrypt(from, stext);
 
-    printbin(key, skey);
+    printbin((int8 *)key, skey);
 
     return 0;
 

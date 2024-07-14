@@ -9,7 +9,9 @@
 
 struct s_arcfour {
     //...
-    int x;
+    int8 i, j, k;
+    int8 s[256];
+
 };
 
 typedef struct s_arcfour Arcfour;
@@ -21,3 +23,4 @@ typedef unsigned int int32;
 Arcfour *rc4init(int8*, int16);
 int8 rc4byte(void);
 int8 *rc4encrypt(int8*, int16);
+
