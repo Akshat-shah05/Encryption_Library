@@ -40,7 +40,7 @@ int main() {
     from = "Shall I compare thee to a summer's day";
     stext=strlen(from);
 
-    printf("Initializing encryption algorithm ");
+    printf("Initializing encryption algorithm ... ");
     rc4 = rc4init((int8 *)key, skey);
     printf("done \n");
 
