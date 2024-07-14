@@ -49,5 +49,22 @@ int8 rc4byte(Arcfour *p) {
     tmp1 = (p->s[p->i] + p->s[p->j]) % 256;
     p->k = p->s[tmp1];
 
-    return p->k
+    return p->k;
+}
+
+int8 *rc4encrypt(Arcfour *p, int8 *ct, const int16 size) {
+    int8 *ciphertext;
+    int16 x;
+
+    ciphertext = (int8 *)malloc(size+t);
+    if (!ciphertext) {
+        abort();
+    }
+
+    for (x = 0; x<size; x++) {
+        ciphertext[x] = ct[x] ^ rc4byte(p);
+    }
+
+    return ciphertext;
+
 }
